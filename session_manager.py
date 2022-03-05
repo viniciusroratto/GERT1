@@ -15,7 +15,7 @@ contact = session.get(('sysContact', '0'))
 description = session.get('.1.3.6.1.2.1.1.1.0')
 
 # Set a variable using an SNMP SET
-#session.set('sysLocation.0', 'The SNMP Lab')
+session.set('sysLocation.0', 'The SNMP Lab')
 
 # Perform an SNMP walk
 system_items = session.walk('system')
