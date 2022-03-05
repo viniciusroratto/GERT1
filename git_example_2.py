@@ -1,4 +1,12 @@
 #!/usr/local/bin/python3
+
+'''
+snmpwalk -v3 -u testuser -l authPriv -a SHA -A shaToken -x AES -X aesToken 192.168.0.25 1.3.6.1.2.1.1.1
+
+SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS XR Software...
+'''
+
+
 from easysnmp import Session
 
 hostname = "192.168.0.25"
