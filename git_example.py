@@ -1,38 +1,65 @@
-# Primeiro precisamos importar a biblioteca do Easy SNMP
+##### CODIGO DO GITHUB. NAO USAR.
+
 from easysnmp import Session
 
-# Depois podemos criar uma sessao (session) SNMP para usar para todas as requisicoes
-session = Session(hostname='localhost', community='public', version=2)
 
+class SNMP_Service():
+    def __init__(self, hostname, **kwargs):
+        self.switch = hostname
+        self.version = kwargs.get('version', 2)
+        if self.version < 3:
+            self.community = kwargs.get('community', 'public')
+            self.session = Session(hostname=self.switch, community=self.community, version=self.version)
+        else:
+            self.security_level = kwargs.get('security_level', 'authNoPriv')
+            self.security_username = kwargs.get('security_username', 'opro')
+            self.auth_protocol = kwargs.get('auth_protocol', 'SHA')
+            self.auth_password = kwargs.get('auth_password', '')
+            self.privacy_protocol = kwargs.get('privacy_protocol', 'aes')
+            self.privacy_password = kwargs.get('privacy_password', '')
+            self.session = Session(hostname=self.switch,
+                                   security_level=self.security_level,
+                                   security_username=self.security_username,
+                                   auth_protocol=self.auth_protocol,
+                                   auth_password=self.auth_password,
+                                   privacy_protocol=self.privacy_protocol,
+                                   privacy_password=self.privacy_password,
+                                   version=self.version)
 
-# Agora vamos fazer um SNMP GET REQUEST para descobrir o numero de interfaces do dispositivo gerenciado
-ifNumber = session.get('ifNumber.0')
+    def sys_descr(self):
+        d = self.session.get('sysDescr.0')
+        [descr, fw, rom] = d.value.split(',')
+        return (self.switch, descr, fw, rom)
 
+    def num_ports(self):
+        d = self.session.get('')
+        [descr, fw, rom] = d.value.split(',')
 
-# Imprimir a quantidade de interfaces
-print "Numero de interfaces", ifNumber.value
+    def model(self):
+        d = self.session.get('ENTITY-MIB::entPhysicalModelName.1')
+        return d
 
+    def firmware(self):
+        d = self.session.get('ENTITY-MIB::entPhysicalSoftwareRev.1')
+        return d
 
-# Eh preciso converter o valor de ifNumber para inteiro porque o Easy SNMP nao faz isso por padrao
-numInterfaces = int(ifNumber.value)
+    def get(self, oid):
+        return self.session.get(oid)
 
-# Fazendo uma requisicao bulk com dois contadores in/out das interfaces de uma vez (repetindo conforme a quantidade de interfaces), isso vai retornar numInterfaces*2 objetos
-countBulk = session.get_bulk(['ifInOctets', 'ifOutOctets'], 0, numInterfaces)
+    def getfirst(self, oid):
+        ret = self.session.get_next(oid)
+        while ret is not None and not len(ret.value):
+            ret = self.session.get_next(ret.oid)
+        return ret
 
+    def getall(self, oid, filter_by_value=False):
+        ret = self.session.walk(oid)
+        if filter_by_value:
+            return [lambda x: x.value for x in ret]
+        return ret
 
-# Aqui vou definir duas listas (formalmente sao chamados de dicionarios) para armazenar os valores de contadores de cada interface
-valifInOctets = {}
-valifOutOctets = {}
+    def set(self, oid, value, snmp_type=None):
+        return self.session.set(oid, value, snmp_type)
 
-
-# O nosso countBulk vai ter uma lista com numInterfaces*2 objetos, entao sera necessario repetir os comandos considerando a quantidade de interfaces (similar ao que foi feito no exemplo basico primeiro.py)
-for i in range(numInterfaces):
-# Os contadores in/out da interface i estarao na lista um apos o outro (posicoes i e i+1)
-    ifInOctets = countBulk[i]
-    ifOutOctets = countBulk[i+1]
-# Convertendo os valores para inteiro
-    valifInOctets[i] = int(ifInOctets.value)
-    valifOutOctets[i] = int(ifOutOctets.value)
-    print "Informacoes da Interface", i
-    print "- In", valifInOctets[i], "(bytes)"
-    print "- Out", valifOutOctets[i], "(bytes)"
+    def set_multiple(self, oids):
+        return self.session.set_multiple(oids)
