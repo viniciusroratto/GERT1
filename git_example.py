@@ -13,7 +13,7 @@ class SNMP_Service():
         else:
             self.security_level = kwargs.get('security_level', 'authNoPriv')
             self.security_username = kwargs.get('security_username', 'opro')
-            self.auth_protocol = kwargs.get('auth_protocol', 'SHA')
+            self.auth_protocol = kwargs.get('auth_protocol', 'DEFAULT')
             self.auth_password = kwargs.get('auth_password', '')
             self.privacy_protocol = kwargs.get('privacy_protocol', 'aes')
             self.privacy_password = kwargs.get('privacy_password', '')
