@@ -17,7 +17,7 @@ snmp-server user EASYSNMP SG_EASYSNMP v3 auth sha AUTHPASS priv aes 128 PRIVPASS
 from easysnmp import Session
 
 
-session = Session(hostname='192.168.0.107', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+session = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
 privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
 
@@ -27,15 +27,33 @@ name = session.get('sysName.0')
 uptime = session.get('sysUpTimeInstance')
 ifnumber = session.get('ifNumber.0')
 services = session.get('sysServices.0')
-#walk = []
-#walk = session.walk()
-# processos = session.get('sysUpTimeInstance')
+time = session.get('ifInOctets.14')
+walk = []
+walk = session.walk()
+#print ('walk: ',walk,'\n')
+
 # Agora basta imprimir a variavel name
 print (name,'\n')
 print ("name.value",name.value,"\n")
 print ('name.snmp_type',name.snmp_type,'\n')
-print ('uptime: ',uptime,'\n')
-print ('services: ',services,'\n')
+print ('uptime: ',uptime.value,'\n')
+print ('services: ',services.value,'\n')
 print ('ifnumber: ',ifnumber,'\n')
 print ('ifnumber.value: ',int(ifnumber.value),'\n')
-#print ('walk: ',walk,'\n')
+print ('Time: ', time, '\n')
+
+oidlist = []
+for each in walk:
+    oidlist.append(each.oid)
+
+valuelist = []
+for each in walk:
+    valuelist.append([each.value])
+
+import csv
+with open('oid_list.csv', 'w') as f:
+    write= csv.writer(f)
+    write.writerows(zip(oidlist, valuelist))
+
+
+
