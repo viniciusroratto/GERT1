@@ -1,0 +1,55 @@
+{
+   "dataType": "Internet data accounting",
+   "clients": [
+      {
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Tempo de Conexao": "1282879",
+         "Conections": "2",
+         "Sistema": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Velocidade de Conexao": "10000000",
+         "Contato": "Me <me@example.org>",
+         "inPacks": "351073",
+         "outPacks": "350989"
+      },
+      {
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Tempo de Conexao": "1282879",
+         "Conections": "2",
+         "Sistema": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Velocidade de Conexao": "10000000",
+         "Contato": "Me <me@example.org>",
+         "inPacks": "351083",
+         "outPacks": "350998"
+      },
+      {
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Tempo de Conexao": "1282880",
+         "Conections": "2",
+         "Sistema": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Velocidade de Conexao": "10000000",
+         "Contato": "Me <me@example.org>",
+         "inPacks": "351093",
+         "outPacks": "351007"
+      },
+      {
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Tempo de Conexao": "1282880",
+         "Conections": "2",
+         "Sistema": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Velocidade de Conexao": "10000000",
+         "Contato": "Me <me@example.org>",
+         "inPacks": "351103",
+         "outPacks": "351016"
+      },
+      {
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Tempo de Conexao": "1282880",
+         "Conections": "2",
+         "Sistema": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Velocidade de Conexao": "10000000",
+         "Contato": "Me <me@example.org>",
+         "inPacks": "351113",
+         "outPacks": "351025"
+      }
+   ]
+}

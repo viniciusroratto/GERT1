@@ -15,13 +15,7 @@ snmp-server user EASYSNMP SG_EASYSNMP v3 auth sha AUTHPASS priv aes 128 PRIVPASS
 
 
 from easysnmp import Session
-
-
-session = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
-auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
-privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
-
-#session3.walk("1.3.6.1.4.1.9.9.166.1.15.1.1.2")
+import json
 
 def create_agent(session):
 
@@ -50,7 +44,43 @@ def create_agent(session):
     
     return dictionary
 
-print(create_agent(session))
+
+
+session = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
+privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
+
+session2 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
+privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
+
+session3 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
+privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
+
+session4 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
+privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
+
+session5 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
+privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
+
+sessions_list = [create_agent(session), create_agent(session2), create_agent(session3), create_agent(session4), create_agent(session5)]
+
+data = {
+    'dataType' : 'Internet data accounting',
+    'clients' : sessions_list
+     }
+
+import json
+
+json_object = json.dumps(data, indent= 3)
+with open ('data2.json', 'w') as f:
+    f.write(json_object)
+
+
+print(json_object)
 
 '''
 # Agora basta imprimir a variavel name
