@@ -1,0 +1,40 @@
+
+<cdk-virtual-scroll-viewport appendOnly itemSize="50" class="lista-clientes">
+    <div *cdkVirtualFor="let client of clients" class="nome">
+        <img [src] = "pathImages + client['imagem']"  alt="user-image" width=60 height=60 class="user-image">
+        {{client['name']}}
+
+        <br>
+        <div class="dados">
+            Uso de banda: {{client['uso_banda']}}
+            <br>
+            Velocidade média de conexão: {{client['velocidade_média']}}
+            <br>
+            Horário de uso da internet: {{client['hora_uso']}}
+            <br>
+        </div>
+        <br>
+
+
+    </div>
+  </cdk-virtual-scroll-viewport>
+
+<!-- <div class="lista-clientes" *ngFor="let client of clients" >
+
+
+    <img [src] = "pathImages + client['imagem']"  alt="user-image" width=60 height=60 class="user-image">
+    {{client['name']}}
+
+    <br>
+    <div class="dados">
+        Uso de banda: {{client['uso_banda']}}
+        <br>
+        Velocidade média de conexão: {{client['velocidade_média']}}
+        <br>
+        Horário de uso da internet: {{client['hora_uso']}}
+        <br>
+    </div>
+    <br>
+
+</div> -->
+
