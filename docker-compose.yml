@@ -1,0 +1,13 @@
+version: "3.7"
+   
+services:
+
+  accounting_viewer:
+    container_name: accounting_viewer
+    image: accounting_viewer
+    ports:
+      - 4200:4200
+    build:
+      context: ./accounting-viewer
+    volumes:
+      - ./accounting-viewer:/usr/src/app
