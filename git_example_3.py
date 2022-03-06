@@ -27,20 +27,24 @@ name = session.get('sysName.0')
 uptime = session.get('sysUpTimeInstance')
 ifnumber = session.get('ifNumber.0')
 services = session.get('sysServices.0')
-time = session.get('ifInOctets.14')
-walk = []
-walk = session.walk()
+sistema = session.get('sysDescr.0')
+speed = session.get('ifSpeed.1')
+
 #print ('walk: ',walk,'\n')
 
 # Agora basta imprimir a variavel name
-print (name,'\n')
 print ("name.value",name.value,"\n")
 print ('name.snmp_type',name.snmp_type,'\n')
 print ('uptime: ',uptime.value,'\n')
 print ('services: ',services.value,'\n')
-print ('ifnumber: ',ifnumber,'\n')
 print ('ifnumber.value: ',int(ifnumber.value),'\n')
-print ('Time: ', time, '\n')
+print ('Sistema: ', sistema.value, '\n')
+print ('Speed:  ', int(speed.value)/1000000, 'Mb/s\n')
+
+
+
+walk = []
+walk = session.walk()
 
 oidlist = []
 for each in walk:
@@ -50,10 +54,14 @@ valuelist = []
 for each in walk:
     valuelist.append([each.value])
 
+indexlist = []
+for each in walk:
+    indexlist.append(each.oid_index)
+
 import csv
 with open('oid_list.csv', 'w') as f:
     write= csv.writer(f)
-    write.writerows(zip(oidlist, valuelist))
+    write.writerows(zip(oidlist, valuelist, indexlist))
 
 
 
