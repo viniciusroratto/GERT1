@@ -2,17 +2,17 @@
 <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="lista-clientes">
     <div *cdkVirtualFor="let client of clients; let i = index" class="nome">
         <img [src] = "pathImages + 'user.png'"  alt="user-image" width=60 height=60 class="user-image">
-        Cliente {{i}} 
+        Cliente {{i + 1}} 
 
         <br>
         <div class="dados">
             Nome do Sistema: {{client['Nome do Sistema']}}
             <br>
-            Velocidade Max de Conexao: {{client['Velocidade Max de Conexao']}}
+            Velocidade Max de Conexão: {{client['Velocidade Max de Conexao'] / 1000000000}} Gb/s
             <br>
-            Tempo de Conexao: {{client['Tempo de Conexao']}}
+            Tempo de Conexão: {{client['Tempo de Conexao']}} s
             <br>
-            Interfaces Conectadas: {{client['Interfaces Conextadas']}}
+            Interfaces Conectadas: {{client['Interfaces Conectadas']}}
             <br>
             Sistema: {{client['Sistema']}}
             <br>
@@ -20,17 +20,17 @@
             <br>
             Pacotes Recebidos: {{client['Pacotes Recebidos']}}
             <br>
-            outPacks: {{client['outPacks']}}
+            Pacotes Enviados: {{client['Pacotes Enviados']}}
             <br>
-            Utilização do Input: {{client['Utilizacao do Input']}}
+            Utilização do Input: {{client['Utilizacao do Input:'].toFixed(4)}}
             <br>
-            Utilização do Output: {{client['Utilizacao do Output']}}
+            Utilização do Output: {{client['Utilizacao do Output:'].toFixed(4)}}
             <br>
-            Tamanho do Maior Pacote: {{client['Tamanho do Maior Pacote']}}
+            Tamanho do Maior Pacote: {{client['Tamanho do Maior Pacote:']}} bits
             <br>
-            Datagramas Recebidos: {{client['Datagramas Recebidos']}}
+            Datagramas Recebidos: {{client['Datagramas Recebidos:']}}
             <br>
-            Datagramas Descartados por falha no buffer: {{client['Datagramas Descartados por falha no buffer']}}
+            Datagramas Descartados por falha no buffer: {{client['Datagramas Descartados por falha no buffer:']}}
             <br>
 
         </div>
