@@ -1,48 +1,80 @@
 {
-    "dataType": "Internet data accounting",
-    "clients": [
+   "dataType": "Internet data accounting",
+   "clients": [
       {
-        "name": "Paula Dantas Alencar",
-        "uso_banda": "600 GB",
-        "velocidade_média": "50 MB",
-        "hora_uso": "08:00-23:00",
-        "imagem": "1.jpg" 
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Velocidade Max de Conexao": "1000000000",
+         "Tempo de Conexao": "630669",
+         "Interfaces Conextadas": "4",
+         "Sistema ": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Contato ": "Me <me@example.org>",
+         "Pacotes Recebidos": "320",
+         "outPacks": "301",
+         "Utilizacao do Input: ": 0.0,
+         "Utilizacao do Output: ": 0.0,
+         "Tamanho do Maior Pacote: ": "1500",
+         "Datagramas Recebidos: ": "19",
+         "Datagramas Descartados por falha no buffer: ": "0"
       },
       {
-        "name": "Petra Figueira Candal",
-        "uso_banda": "450 GB",
-        "velocidade_média": "30 MB",
-        "hora_uso": "06:00-22:00",
-        "imagem": "2.jpg"
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Velocidade Max de Conexao": "1000000000",
+         "Tempo de Conexao": "630971",
+         "Interfaces Conextadas": "4",
+         "Sistema ": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Contato ": "Me <me@example.org>",
+         "Pacotes Recebidos": "338",
+         "outPacks": "318",
+         "Utilizacao do Input: ": 0.042376921528533826,
+         "Utilizacao do Output: ": 0.09464179141372554,
+         "Tamanho do Maior Pacote: ": "1500",
+         "Datagramas Recebidos: ": "19",
+         "Datagramas Descartados por falha no buffer: ": "0"
       },
       {
-        "name": "Silvana Marques Sá",
-        "uso_banda": "100 GB",
-        "velocidade_média": "15 MB",
-        "hora_uso": "05:00-20:00",
-        "imagem": "3.jpg"
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Velocidade Max de Conexao": "1000000000",
+         "Tempo de Conexao": "631273",
+         "Interfaces Conextadas": "4",
+         "Sistema ": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Contato ": "Me <me@example.org>",
+         "Pacotes Recebidos": "356",
+         "outPacks": "335",
+         "Utilizacao do Input: ": 0.0,
+         "Utilizacao do Output: ": 0.0,
+         "Tamanho do Maior Pacote: ": "1500",
+         "Datagramas Recebidos: ": "19",
+         "Datagramas Descartados por falha no buffer: ": "0"
       },
       {
-        "name": "Felix Viegas Tristão",
-        "uso_banda": "250 GB",
-        "velocidade_média": "25 MB",
-        "hora_uso": "10:00-02:00",
-        "imagem": "10.jpg"
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Velocidade Max de Conexao": "1000000000",
+         "Tempo de Conexao": "631575",
+         "Interfaces Conextadas": "4",
+         "Sistema ": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Contato ": "Me <me@example.org>",
+         "Pacotes Recebidos": "374",
+         "outPacks": "352",
+         "Utilizacao do Input: ": 0.0,
+         "Utilizacao do Output: ": 0.057589565393341056,
+         "Tamanho do Maior Pacote: ": "1500",
+         "Datagramas Recebidos: ": "19",
+         "Datagramas Descartados por falha no buffer: ": "0"
       },
       {
-        "name": "Brayan Lago Lira",
-        "uso_banda": "980 GB",
-        "velocidade_média": "100 MB",
-        "hora_uso": "12:00-22:00",
-        "imagem": "11.jpg"
-      },
-      {
-        "name": "Ezio Gouveia Almeida",
-        "uso_banda": "875 GB",
-        "velocidade_média": "80 MB",
-        "hora_uso": "14:00-05:00",
-        "imagem": "12.jpg"
+         "Nome do Sistema": "gerencia-VirtualBox",
+         "Velocidade Max de Conexao": "1000000000",
+         "Tempo de Conexao": "631876",
+         "Interfaces Conextadas": "4",
+         "Sistema ": "Linux gerencia-VirtualBox 4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019 x86_64",
+         "Contato ": "Me <me@example.org>",
+         "Pacotes Recebidos": "392",
+         "outPacks": "369",
+         "Utilizacao do Input: ": 0.0,
+         "Utilizacao do Output: ": 0.0,
+         "Tamanho do Maior Pacote: ": "1500",
+         "Datagramas Recebidos: ": "19",
+         "Datagramas Descartados por falha no buffer: ": "0"
       }
-    ]
-  }
-  
+   ]
+}

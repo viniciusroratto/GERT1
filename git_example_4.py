@@ -3,7 +3,7 @@ import time
 start = time.process_time()
 
 
-session = Session(hostname='192.168.0.107', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+session = Session(hostname='127.0.0.1', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
 privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
 

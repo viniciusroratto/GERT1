@@ -16,6 +16,7 @@ snmp-server user EASYSNMP SG_EASYSNMP v3 auth sha AUTHPASS priv aes 128 PRIVPASS
 
 from easysnmp import Session
 import json
+import time
 
 def create_agent(session):
 
@@ -24,22 +25,59 @@ def create_agent(session):
     ifnumber = session.get('ifNumber.0')
     services = session.get('sysServices.0')
     sistema = session.get('sysDescr.0')
-    speed = session.get('ifSpeed.1')
+    speed = session.get('ifSpeed.2')
     #session.set('sysContact.0', 'vini@gmail.com')
     contact = session.get('sysContact.0')
     inpacks = session.get('snmpInPkts.0')
     outpacks = session.get('snmpOutPkts.0')
 
+    ifSpeed = session.get('ifSpeed.2')
+    start = time.process_time()
+
+    ifInOctets = session.get('ifInOctets.2')
+    ifOutOctets = session.get('ifOutOctets.2')
+
+    time.sleep(3)
+
+    ifInOctets2 = session.get('ifInOctets.2')
+    ifOutOctets2 = session.get('ifOutOctets.2')
+
+    tempo= time.process_time() - start
+
+    delta_in = int(ifInOctets2.value) - int(ifInOctets.value)
+    delta_out = int(ifOutOctets2.value) - int(ifOutOctets.value)
+ 
+    input_utilization =  (delta_in * 8 * 100)/(tempo * int(ifSpeed.value))
+    output_utilization =  (delta_out * 8 * 100)/(tempo * int(ifSpeed.value))
+
+
+    #ipv6_desc = session.set('ipv6DefaultHopLimit.0', '5')
+    #print(ipv6_desc)
+
+
+    #ALGUMAS OIBs INTERESSANTES
+
+    largest_pkt = session.get('ipv6IfEffectiveMtu.2')
+    ipIfStatsInDiscards = session.get('ipIfStatsInDiscards.2.2')
+    ipIfStatsHCInReceives = session.get('ipIfStatsHCInReceives.2.2')
+
+    
+
     dictionary = {
 
         'Nome do Sistema' : name.value,
+        'Velocidade Max de Conexao' : speed.value,
         'Tempo de Conexao' : uptime.value,
-        'Conections' : ifnumber.value,
-        'Sistema' : sistema.value,
-        'Velocidade de Conexao' : speed.value,
-        'Contato' : contact.value,
-        'inPacks': inpacks.value,
-        'outPacks' : outpacks.value
+        'Interfaces Conectadas' : ifnumber.value,
+        'Sistema ' : sistema.value,
+        'Contato ' : contact.value,
+        'Pacotes Recebidos': inpacks.value,
+        'Pacotes Enviados' : outpacks.value,
+        'Utilizacao do Input: ' : input_utilization,
+        'Utilizacao do Output: ' : output_utilization,
+        'Tamanho do Maior Pacote: ': largest_pkt.value,
+        'Datagramas Recebidos: ': ipIfStatsHCInReceives.value,
+        'Datagramas Descartados por falha no buffer: ': ipIfStatsInDiscards.value
     }
     
     return dictionary
@@ -50,9 +88,9 @@ session = Session(hostname='10.0.2.15', version=3, security_level="auth_with_pri
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
 privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
 
-session2 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+session2 = Session(hostname='127.0.0.1', version=3, security_level="auth_without_privacy", security_username="MD5User",
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
-privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
+privacy_protocol="DEFAULT", privacy_password="The Net-SNMP Demo Password")
 
 session3 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
@@ -76,7 +114,7 @@ data = {
 import json
 
 json_object = json.dumps(data, indent= 3)
-with open ('data2.json', 'w') as f:
+with open ('./accounting-viewer/src/assets/dados.json', 'w') as f:
     f.write(json_object)
 
 
