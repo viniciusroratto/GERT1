@@ -92,15 +92,15 @@ session2 = Session(hostname='127.0.0.1', version=3, security_level="auth_without
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
 privacy_protocol="DEFAULT", privacy_password="The Net-SNMP Demo Password")
 
-session3 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+session3 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MYUSER01",
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
 privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
 
-session4 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+session4 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MYUSER02",
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
 privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
 
-session5 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MD5DESUser",
+session5 = Session(hostname='10.0.2.15', version=3, security_level="auth_with_privacy", security_username="MYUSER03",
 auth_protocol="MD5", auth_password="The Net-SNMP Demo Password",
 privacy_protocol="DES", privacy_password="The Net-SNMP Demo Password")
 
