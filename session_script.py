@@ -1,16 +1,6 @@
 # !/usr/local/bin/python3
 
 '''
-snmp-server view SV_EASYSNMP interfaces included
-snmp-server view SV_EASYSNMP ciscoCdpMIB included
-snmp-server view SV_EASYSNMP ciscoCBQosMIB included
- 
-ip access-list standard ACL_SNMP
- permit 192.168.2.89
- 
-snmp-server group SG_EASYSNMP v3 auth read SV_EASYSNMP access ACL_SNMP
- 
-snmp-server user EASYSNMP SG_EASYSNMP v3 auth sha AUTHPASS priv aes 128 PRIVPASS
 '''
 
 
@@ -49,10 +39,6 @@ def create_agent(session):
  
     input_utilization =  (delta_in * 8 * 100)/(tempo * int(ifSpeed.value))
     output_utilization =  (delta_out * 8 * 100)/(tempo * int(ifSpeed.value))
-
-
-    #ipv6_desc = session.set('ipv6DefaultHopLimit.0', '5')
-    #print(ipv6_desc)
 
 
     #ALGUMAS OIBs INTERESSANTES
