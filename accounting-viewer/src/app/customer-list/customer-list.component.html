@@ -1,17 +1,38 @@
 
 <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="lista-clientes">
-    <div *cdkVirtualFor="let client of clients" class="nome">
-        <img [src] = "pathImages + client['imagem']"  alt="user-image" width=60 height=60 class="user-image">
-        {{client['name']}}
+    <div *cdkVirtualFor="let client of clients; let i = index" class="nome">
+        <img [src] = "pathImages + 'user.png'"  alt="user-image" width=60 height=60 class="user-image">
+        Cliente {{i}} 
 
         <br>
         <div class="dados">
-            Uso de banda: {{client['uso_banda']}}
+            Nome do Sistema: {{client['Nome do Sistema']}}
             <br>
-            Velocidade média de conexão: {{client['velocidade_média']}}
+            Velocidade Max de Conexao: {{client['Velocidade Max de Conexao']}}
             <br>
-            Horário de uso da internet: {{client['hora_uso']}}
+            Tempo de Conexao: {{client['Tempo de Conexao']}}
             <br>
+            Interfaces Conectadas: {{client['Interfaces Conextadas']}}
+            <br>
+            Sistema: {{client['Sistema']}}
+            <br>
+            Contato: {{client['Contato']}}
+            <br>
+            Pacotes Recebidos: {{client['Pacotes Recebidos']}}
+            <br>
+            outPacks: {{client['outPacks']}}
+            <br>
+            Utilização do Input: {{client['Utilizacao do Input']}}
+            <br>
+            Utilização do Output: {{client['Utilizacao do Output']}}
+            <br>
+            Tamanho do Maior Pacote: {{client['Tamanho do Maior Pacote']}}
+            <br>
+            Datagramas Recebidos: {{client['Datagramas Recebidos']}}
+            <br>
+            Datagramas Descartados por falha no buffer: {{client['Datagramas Descartados por falha no buffer']}}
+            <br>
+
         </div>
         <br>
 

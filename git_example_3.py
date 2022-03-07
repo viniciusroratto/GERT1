@@ -69,15 +69,15 @@ def create_agent(session):
         'Velocidade Max de Conexao' : speed.value,
         'Tempo de Conexao' : uptime.value,
         'Interfaces Conectadas' : ifnumber.value,
-        'Sistema ' : sistema.value,
-        'Contato ' : contact.value,
+        'Sistema' : sistema.value,
+        'Contato' : contact.value,
         'Pacotes Recebidos': inpacks.value,
         'Pacotes Enviados' : outpacks.value,
-        'Utilizacao do Input: ' : input_utilization,
-        'Utilizacao do Output: ' : output_utilization,
-        'Tamanho do Maior Pacote: ': largest_pkt.value,
-        'Datagramas Recebidos: ': ipIfStatsHCInReceives.value,
-        'Datagramas Descartados por falha no buffer: ': ipIfStatsInDiscards.value
+        'Utilizacao do Input:' : input_utilization,
+        'Utilizacao do Output:' : output_utilization,
+        'Tamanho do Maior Pacote:': largest_pkt.value,
+        'Datagramas Recebidos:': ipIfStatsHCInReceives.value,
+        'Datagramas Descartados por falha no buffer:': ipIfStatsInDiscards.value
     }
     
     return dictionary
